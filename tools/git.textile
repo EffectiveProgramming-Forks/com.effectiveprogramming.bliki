@@ -1,0 +1,15 @@
+---
+layout: page
+title: Git
+---
+
+<div class="gist">
+{% gist 11016953 %}
+</div>
+
+h3. Reference
+
+* "Git Basics - Undoing Things":http://git-scm.com/book/en/Git-Basics-Undoing-Things
+* "How to undo the last Git commit?":http://stackoverflow.com/questions/927358/how-to-undo-the-last-git-commit
+* "Whats the difference between git reset --mixed, --soft, and --hard?":http://stackoverflow.com/questions/3528245/whats-the-difference-between-git-reset-mixed-soft-and-hard
+* "Atlassian Git Tutorial: Undoing Changes":https://www.atlassian.com/git/tutorial/undoing-changes

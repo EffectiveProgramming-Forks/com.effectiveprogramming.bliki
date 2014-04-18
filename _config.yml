@@ -1,0 +1,5 @@
+name: Effective Programming
+title: bliki
+markdown: redcarpet
+pygments: true
+exclude: [run.sh]
