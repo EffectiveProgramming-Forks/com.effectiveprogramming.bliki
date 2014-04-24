@@ -8,6 +8,6 @@ title: Home
 h3. Topics
 
 * "iOS":/ios/index.html
-* "git":/tools/git.html
+* "Git":/tools/git.html
 
 </div>

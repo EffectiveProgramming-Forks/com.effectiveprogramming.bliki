@@ -14,3 +14,6 @@ h3. Reference
 * "Whats the difference between git reset --mixed, --soft, and --hard?":http://stackoverflow.com/questions/3528245/whats-the-difference-between-git-reset-mixed-soft-and-hard
 * "Atlassian Git Tutorial: Undoing Changes":https://www.atlassian.com/git/tutorial/undoing-changes
 * "Git Credential Cache":http://git-scm.com/docs/git-credential-cache
+* "Git Commit Amend":https://www.atlassian.com/git/tutorial/rewriting-git-history#!commit-amend
+* "Git Amend your last commit":http://nathanhoad.net/git-amend-your-last-commit
+* "How do I change the author of a commit in git?":http://stackoverflow.com/questions/750172/how-do-i-change-the-author-of-a-commit-in-git
