@@ -9,5 +9,6 @@ h3. Topics
 
 * "iOS":/ios/index.html
 * "Git":/tools/git.html
+* "Bash":/tools/bash.html
 
 </div>
