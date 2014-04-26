@@ -3,8 +3,13 @@ layout: post
 title: Bash
 ---
 
-h3. References
+h3. Arrays
 
 * "Array Variables":http://www.tldp.org/LDP/Bash-Beginners-Guide/html/sect_10_02.html
 * "Arrays":http://www.tldp.org/LDP/abs/html/arrays.html
 * "The Ultimate Bash Array Tutorial with 15 Examples":http://www.thegeekstuff.com/2010/06/bash-array-tutorial/
+
+h3. Command Line Arguments
+
+* "http://www.tldp.org/LDP/Bash-Beginners-Guide/html/sect_09_07.html":http://www.tldp.org/LDP/Bash-Beginners-Guide/html/sect_09_07.html
+* "How to read command line arguments in a bash script":http://how-to.wikia.com/wiki/How_to_read_command_line_arguments_in_a_bash_script
