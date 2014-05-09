@@ -1,0 +1,15 @@
+---
+layout: post
+title: JSON
+---
+
+h3. UTF-8 Encoding
+
+Is it really necessary to explicitly pass down the charset for a JSON web response?
+
+* "What does “Content-type: application/json; charset=utf-8” really mean?":http://stackoverflow.com/questions/9254891/what-does-content-type-application-json-charset-utf-8-really-mean
+* Google "how to parse jaxrs":https://www.google.com/search?q=how+to+parse+jaxrs
+* Wiki "JSON":http://en.wikipedia.org/wiki/JSON
+* "RFC 4627":http://www.ietf.org/rfc/rfc4627.txt
+
+<blockquote>3.  Encoding<br/>JSON text SHALL be encoded in Unicode.  The default encoding is UTF-8.</blockquote>

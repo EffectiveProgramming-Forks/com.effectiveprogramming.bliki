@@ -1,7 +1,6 @@
 ---
 layout: post
 title: NSString
-published: NO
 ---
 
 h3. Format Specifiers
