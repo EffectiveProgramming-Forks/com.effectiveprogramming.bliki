@@ -1,0 +1,8 @@
+---
+layout: post
+title: Grand Central Dispatch
+---
+
+<div class="gist">
+<script src="https://gist.github.com/LutherBaker/bd23583175cef6facbd4.js"></script>
+</div>

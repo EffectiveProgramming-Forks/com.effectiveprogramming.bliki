@@ -1,7 +1,9 @@
 ---
 layout: post
-title: Map Kit Cheat Sheet
+title: Map Kit
 ---
+
+h2. Overview
 
 h3. Projection
 

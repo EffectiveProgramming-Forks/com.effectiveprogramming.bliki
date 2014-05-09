@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Geocoding Tutorial
+title: Geocoding
 ---
 
 h3. General
