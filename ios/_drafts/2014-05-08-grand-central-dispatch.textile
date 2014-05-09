@@ -1,0 +1,8 @@
+---
+layout: post
+title: Grand Central Dispatch Tutorial
+---
+
+<div class="gist">
+{% gist bd23583175cef6facbd4 %}
+</div>

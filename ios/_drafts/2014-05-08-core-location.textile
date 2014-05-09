@@ -1,0 +1,134 @@
+---
+layout: post
+title: Core Location
+---
+
+h2. Docs
+
+* Apple's "Location and Maps Programming Guide":https://developer.apple.com/library/ios/documentation/userexperience/conceptual/LocationAwarenessPG/CoreLocation/CoreLocation.html#//apple_ref/doc/uid/TP40009497-CH2-SW1
+
+h2. Code
+
+h3. PList
+
+* add entry to UIRequiredDeviceCapabilities
+
+h3. Enabled
+
+* check that the user hasn't disabled location services. Don't annoy the user if they've explicitly disabled location services on the device.
+
+{% highlight objectivec %}
+	[CLCoreLocation locationServicesEnabled];
+{% endhighlight %}
+
+h3. Start Service
+
+{% highlight objectivec %}
+	CLLocationManager *manager = [[CLLocationManager alloc] init];
+	[manager startUpdatingLocation];
+	[manager stopUpdatingLocation];
+{% endhighlight %}
+
+h3. Noteworthy
+
+* If you leave the significant-change location service running and your iOS app is subsequently suspended or terminated, the service automatically wakes up your app when new location data arrives. At wake-up time, the app is put into the background and you are given a small amount of time (around 10 seconds) to manually restart location services and process the location data.
+* Because the location manager object sometimes returns cached events, it’s recommended that you check the timestamp of any location events you receive.
+* As it receives more accurate data, the location service may return additional events, with the accuracy values reflecting the improvements accordingly.
+* Apps that use location services should not start those services until they’re needed.
+* &hellip; include the NSLocationUsageDescription key in your app’s Info.plist file and set the value of that key to a string that describes how your app intends to use location data.
+* When an app is relaunched because of a location update, the launch options dictionary passed to your application:willFinishLaunchingWithOptions: or application:didFinishLaunchingWithOptions: method contains the UIApplicationLaunchOptionsLocationKey key. The presence of that key signals that new location data is waiting to be delivered to your app. To obtain that data, you must create a new CLLocationManager object and restart the location services that you had running prior to your app’s termination. When you restart those services, the location manager delivers all pending location updates to its delegate.
+* &hellip; specifying a value of kCLLocationAccuracyThreeKilometers doesn’t prevent the location service from returning better data.
+
+h2. Properties
+
+* desiredAccuracy:
+* distanceThreshold:
+
+h2. Questions
+
+h3. Can we query the location manager directly or do we need to save reported locations?
+
+* No delegate, NO, manager doesn't get updated
+* Yes delegate, No callback, NO, manager doesn't get updated
+* Yes delegate, Yes callback, YES, manager gets updated. ie: get changes directly from manager
+* If a location update has already been delivered, you can also get the most recent location data directly from the CLLocationManager object without waiting for a new event to be delivered.
+
+h3. Does Best Accuracy not bother sending _lower_ readings?
+
+* Test this by changing the accuracy and recording the output for both versions
+* kCLLocationAccuracyKilometer sent 'bad' readings but seemed to stop once it got good enough. Oddly, the first reading thought it was more accurate than the final readings.
+
+<pre>2014-05-08 13:38:56.810 EPXCoreLocation[707:60b] 1. UpdatedLocations: (
+    "<+38.70181229,-90.42282706> +/- 65.00m (speed -1.00 mps / course -1.00) @ 5/8/14, 1:38:00 PM Central Daylight Time"
+)
+2014-05-08 13:38:56.872 EPXCoreLocation[707:60b] 2. UpdatedLocations: (
+    "<+38.70387028,-90.42521646> +/- 1414.00m (speed -1.00 mps / course -1.00) @ 5/8/14, 1:38:56 PM Central Daylight Time"
+)
+2014-05-08 13:38:56.889 EPXCoreLocation[707:60b] 3. UpdatedLocations: (
+    "<+38.70458613,-90.42604957> +/- 1414.00m (speed -1.00 mps / course -1.00) @ 5/8/14, 1:38:56 PM Central Daylight Time"
+)</pre>
+
+h3. Do we continue to get readings after we've reached the 'best'
+
+* kCLLocationAccuracyBestForNavigation appears to send readings every 30 seconds, even after leveling off from initial startup.
+
+<pre>2014-05-08 13:40:28.528 EPXCoreLocation[716:60b] 1. UpdatedLocations: (
+    "<+38.70458613,-90.42604957> +/- 1414.00m (speed -1.00 mps / course -1.00) @ 5/8/14, 1:40:22 PM Central Daylight Time"
+)
+2014-05-08 13:40:28.607 EPXCoreLocation[716:60b] 2. UpdatedLocations: (
+    "<+38.70531584,-90.42689872> +/- 1414.00m (speed -1.00 mps / course -1.00) @ 5/8/14, 1:40:28 PM Central Daylight Time"
+)
+2014-05-08 13:40:28.628 EPXCoreLocation[716:60b] 3. UpdatedLocations: (
+    "<+38.70530885,-90.42689062> +/- 1414.00m (speed -1.00 mps / course -1.00) @ 5/8/14, 1:40:28 PM Central Daylight Time"
+)
+2014-05-08 13:40:28.755 EPXCoreLocation[716:60b] 4. UpdatedLocations: (
+    "<+38.70176923,-90.42282443> +/- 65.00m (speed -1.00 mps / course -1.00) @ 5/8/14, 1:40:28 PM Central Daylight Time"
+)
+2014-05-08 13:40:29.105 EPXCoreLocation[716:60b] 5. UpdatedLocations: (
+    "<+38.70176578,-90.42284142> +/- 65.00m (speed -1.00 mps / course -1.00) @ 5/8/14, 1:40:29 PM Central Daylight Time"
+)
+2014-05-08 13:40:34.005 EPXCoreLocation[716:60b] 6. UpdatedLocations: (
+    "<+38.70176617,-90.42284045> +/- 65.00m (speed -1.00 mps / course -1.00) @ 5/8/14, 1:40:33 PM Central Daylight Time"
+)
+2014-05-08 13:40:40.001 EPXCoreLocation[716:60b] 7. UpdatedLocations: (
+    "<+38.70177464,-90.42285228> +/- 65.00m (speed -1.00 mps / course -1.00) @ 5/8/14, 1:40:39 PM Central Daylight Time"
+)
+2014-05-08 13:40:46.018 EPXCoreLocation[716:60b] 8. UpdatedLocations: (
+    "<+38.70177570,-90.42285553> +/- 65.00m (speed -1.00 mps / course -1.00) @ 5/8/14, 1:40:46 PM Central Daylight Time"
+)
+2014-05-08 13:40:52.057 EPXCoreLocation[716:60b] 9. UpdatedLocations: (
+    "<+38.70176032,-90.42284873> +/- 65.00m (speed -1.00 mps / course -1.00) @ 5/8/14, 1:40:52 PM Central Daylight Time"
+)
+2014-05-08 13:40:58.008 EPXCoreLocation[716:60b] 10. UpdatedLocations: (
+    "<+38.70176536,-90.42283935> +/- 65.00m (speed -1.00 mps / course -1.00) @ 5/8/14, 1:40:58 PM Central Daylight Time"
+)
+2014-05-08 13:41:29.022 EPXCoreLocation[716:60b] 11. UpdatedLocations: (
+    "<+38.70176683,-90.42283477> +/- 65.00m (speed -1.00 mps / course -1.00) @ 5/8/14, 1:41:29 PM Central Daylight Time"
+)
+2014-05-08 13:42:00.043 EPXCoreLocation[716:60b] 12. UpdatedLocations: (
+    "<+38.70176734,-90.42284256> +/- 65.00m (speed -1.00 mps / course -1.00) @ 5/8/14, 1:42:00 PM Central Daylight Time"
+)
+2014-05-08 13:42:31.025 EPXCoreLocation[716:60b] 13. UpdatedLocations: (
+    "<+38.70178340,-90.42284216> +/- 65.00m (speed -1.00 mps / course -1.00) @ 5/8/14, 1:42:31 PM Central Daylight Time"
+)
+2014-05-08 13:43:02.012 EPXCoreLocation[716:60b] 14. UpdatedLocations: (
+    "<+38.70177284,-90.42284910> +/- 65.00m (speed -1.00 mps / course -1.00) @ 5/8/14, 1:43:02 PM Central Daylight Time"
+)
+2014-05-08 13:43:33.013 EPXCoreLocation[716:60b] 15. UpdatedLocations: (
+    "<+38.70178522,-90.42288180> +/- 65.00m (speed -1.00 mps / course -1.00) @ 5/8/14, 1:43:33 PM Central Daylight Time"
+)
+2014-05-08 13:44:04.044 EPXCoreLocation[716:60b] 16. UpdatedLocations: (
+    "<+38.70177900,-90.42285343> +/- 65.00m (speed -1.00 mps / course -1.00) @ 5/8/14, 1:44:04 PM Central Daylight Time"
+)
+2014-05-08 13:44:35.032 EPXCoreLocation[716:60b] 17. UpdatedLocations: (
+    "<+38.70177838,-90.42286043> +/- 65.00m (speed -1.00 mps / course -1.00) @ 5/8/14, 1:44:35 PM Central Daylight Time"
+)
+2014-05-08 13:45:06.093 EPXCoreLocation[716:60b] 18. UpdatedLocations: (
+    "<+38.70178541,-90.42289320> +/- 65.00m (speed -1.00 mps / course -1.00) @ 5/8/14, 1:45:06 PM Central Daylight Time"
+)
+2014-05-08 13:45:37.092 EPXCoreLocation[716:60b] 19. UpdatedLocations: (
+    "<+38.70178793,-90.42285508> +/- 65.00m (speed -1.00 mps / course -1.00) @ 5/8/14, 1:45:37 PM Central Daylight Time"
+)
+2014-05-08 13:45:55.947 EPXCoreLocation[716:60b] 20. UpdatedLocations: (
+    "<+38.70179146,-90.42288426> +/- 65.00m (speed -1.00 mps / course -1.00) @ 5/8/14, 1:45:55 PM Central Daylight Time"
+)</pre>

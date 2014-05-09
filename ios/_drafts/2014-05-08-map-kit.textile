@@ -1,0 +1,82 @@
+---
+layout: post
+title: Map Kit Cheat Sheet
+---
+
+h3. Projection
+
+* Map Kit uses a Mercator map projection. In such a projection, the longitude lines that normally converge at the poles become parallel instead, causing land masses to be distorted as you move away from the equator.
+* The advantage of a Mercator projection is that the map content is scaled in a way that benefits general navigation. Specifically, on a Mercator map projection, a straight line drawn between any two points on the map yields a course heading that can be used in actual navigation on the surface of the Earth.
+
+h3. Locations
+
+Points
+
+* map coordinate: CLLocationCoordinate2D (specific)
+* map point: MKMapPoint (normal)
+* point: CGPoint (general)
+
+Areas
+
+* MKCoordinateSpan, MKCoordinateRegion
+* MKMapSize, MKMapRect
+* CGSize, CGRect
+
+h3. Subviews
+
+* Any subviews you add to the map view retain the position specified by their frame property and don’t scroll with the map contents.
+* If you want content to remain fixed relative to a specific map coordinate (and thus scroll with the map itself), you must use annotations or overlays.
+* &hellip; you can use a MKMapSnapshotter object to create a static map image asynchronously. The resulting snapshot contains an image view, to which you can apply all the effects that you apply to other images in your app.
+
+h3. Pan and Zoom
+
+* If you only want to pan the map, you should do so by modifying only the centerCoordinate property. Attempting to pan the map by changing the region property usually causes a change in the zoom level as well, because changing any part of the region causes the map view to evaluate the zoom level needed to display that region appropriately.
+* To zoom the map, modify the span of the visible map region. 
+
+h3. Printing
+
+* In an iOS app, you often use drawContentForPageAtIndex:inRect: to implement printing. Because this method expects to receive the printable content synchronously, you have to modify the snapshot-creation steps to include the use of a dispatch semaphore and queue that help you block on the completion of the snapshot. (To learn more about dispatch semaphores and queues, see “Using Dispatch Semaphores to Regulate the Use of Finite Resources” in Concurrency Programming Guide .)
+
+h2. Annotations
+
+To display an annotation on a map, your app must provide two distinct objects:
+
+* An annotation *object,* which is an object that conforms to the MKAnnotation protocol and manages the data for the annotation.
+* An annotation *view,* which is a view (derived from the MKAnnotationView class) used to draw the visual representation of the annotation on the map surface.
+
+h3. Practice
+
+* In practice, it’s good to keep annotation objects lightweight, especially if you intend to add large numbers of them to the map. The map view keeps a reference to the annotation objects you add to it and uses the data in those objects to determine when to display the corresponding view.
+* All annotations are drawn at the same scale every time, regardless of the map’s current zoom level. If your map contains many annotations, your annotation views could overlap each other as the user zooms out. To counter this behavior, you can add and remove annotations based on the map’s current zoom level.
+
+h3. Delegate
+
+* When the map view needs an annotation view, it calls the mapView:viewForAnnotation: method of its delegate object. If you don’t implement this method—or if you implement it and always return nil—the map view uses a default annotation view, which is typically a pin annotation view.
+
+h2. Callouts
+
+* set a title on the annotation view
+* set a subtitle on the annotation
+* the MKPinAnnotationView also has a leftCalloutAccessoryView and rightCalloutAccessoryView
+
+h2. Overlays
+
+Whereas annotations are always defined by a single map coordinate, overlays are typically defined by multiple coordinates. To display an overlay on a map, your app must provide two distinct objects:
+
+* An overlay *object*, which is an object that conforms to the MKOverlay protocol and manages the data points for the overlay.
+* An overlay *renderer*, which is a class (derived from MKOverlayRenderer) used to draw the visual representation of the overlay on the map surface.
+
+* In iOS 7.0 and later, *MKOverlayRenderer* replaces *MKOverlayView.* Renderers provide the same functionality as views, but they are more lightweight and efficient.
+* As with annotations, you don’t add overlay renderers directly to the map surface. Instead, the delegate object provides an overlay renderer when the map view asks for one, and the map view incorporates the overlay into its opaque view hierarchy.
+* Unlike annotations, rendered overlays are automatically scaled to match the current zoom level of the map. Scaling the overlay is necessary because overlays generally highlight boundaries, roads, and other content that also scales during zooming.
+* When it needs an overlay renderer, the map view calls the mapView:rendererForOverlay: method of its delegate object. If you don’t implement this method—or if you implement it and always return nil—the map view doesn’t display anything for the specified overlay. Therefore, you must implement this method and return a valid overlay renderer for any overlays you want displayed on the map.
+* Because overlays are typically different from one another, the map view doesn’t recycle those objects when they are removed from the map. Instead of dequeueing an existing overlay renderer, you must create a new one every time.
+* The MKOverlay protocol conforms to the MKAnnotation protocol. As a result, all overlay objects are also annotation objects and can be treated as one or both in your code.
+
+h2. Questions
+
+You should be able to answer these questions, intellectually, without looking at code, before the end of this class.
+
+* how can I drag pins around and capture their gps
+* how can I start the app up zoomed in and panned over to OK
+* how can I draw overlays on the map

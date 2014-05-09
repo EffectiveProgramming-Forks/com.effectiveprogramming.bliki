@@ -1,0 +1,9 @@
+---
+layout: post
+title: NSString
+published: NO
+---
+
+h3. Format Specifiers
+
+"Format Specifiers":https://developer.apple.com/library/ios/documentation/cocoa/conceptual/Strings/Articles/formatSpecifiers.html

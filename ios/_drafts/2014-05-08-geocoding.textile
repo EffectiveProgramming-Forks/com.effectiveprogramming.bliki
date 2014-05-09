@@ -1,0 +1,16 @@
+---
+layout: post
+title: Geocoding Tutorial
+---
+
+h3. General
+
+* lat/long to placemark = reverse geocoding
+* place name information to lat/long = forward geocoding
+* Because geocoders rely on a network service, a live network connection must be present in order for a geocoding request to succeed.
+
+h3. CLGeocoder
+
+* Use the CLGeocoder class with a dictionary of Address Book information or a simple string to initiate forward-geocoding requests. There is no designated format for string-based requests: Delimiter characters are welcome, but not required, and the geocoder server treats the string as case-insensitive. For example, any of the following strings would yield results: "Apple Inc", "1 Infinite Loop", "1 Infinite Loop, Cupertino, CA USA"
+* The more information you can provide to the forward geocoder, the better the results returned to you. The geocoder object parses the information you give it and if it finds a match, returns some number of placemark objects. The number of returned placemark objects depends greatly on the specificity of the information you provide. For this reason, providing street, city, province, and country information is much more likely to return a single address than providing only street and city information. 
+* The more information you can provide to the forward geocoder, the better the results returned to you. The geocoder object parses the information you give it and if it finds a match, returns some number of placemark objects. The number of returned placemark objects depends greatly on the specificity of the information you provide. For this reason, providing street, city, province, and country information is much more likely to return a single address than providing only street and city information.
