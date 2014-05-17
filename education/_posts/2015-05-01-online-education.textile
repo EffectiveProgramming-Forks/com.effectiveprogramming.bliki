@@ -1,0 +1,13 @@
+---
+layout: post
+title: Online Education
+---
+
+h3. General
+
+* "A Bachelor's Level Computer Science Program Curriculum":http://blog.agupieware.com/2014/05/online-learning-bachelors-level.html?m=1
+
+h3. UDACITY
+
+* "Intro to Artificial Intelligence":https://www.udacity.com/course/cs271
+* "The Design of Everyday Things":https://www.udacity.com/course/design101

@@ -3,17 +3,17 @@ layout: post
 title: Core Location
 ---
 
-h2. Docs
+h3. Docs
 
 * Apple's "Location and Maps Programming Guide":https://developer.apple.com/library/ios/documentation/userexperience/conceptual/LocationAwarenessPG/CoreLocation/CoreLocation.html#//apple_ref/doc/uid/TP40009497-CH2-SW1
 
-h2. Code
+h3. Code
 
-h3. PList
+h4. PList
 
 * add entry to UIRequiredDeviceCapabilities
 
-h3. Enabled
+h4. Enabled
 
 * check that the user hasn't disabled location services. Don't annoy the user if they've explicitly disabled location services on the device.
 
@@ -21,7 +21,7 @@ h3. Enabled
 	[CLCoreLocation locationServicesEnabled];
 {% endhighlight %}
 
-h3. Start Service
+h4. Start Service
 
 {% highlight objectivec %}
 	CLLocationManager *manager = [[CLLocationManager alloc] init];
@@ -29,7 +29,7 @@ h3. Start Service
 	[manager stopUpdatingLocation];
 {% endhighlight %}
 
-h3. Noteworthy
+h4. Noteworthy
 
 * If you leave the significant-change location service running and your iOS app is subsequently suspended or terminated, the service automatically wakes up your app when new location data arrives. At wake-up time, the app is put into the background and you are given a small amount of time (around 10 seconds) to manually restart location services and process the location data.
 * Because the location manager object sometimes returns cached events, it’s recommended that you check the timestamp of any location events you receive.
@@ -39,21 +39,21 @@ h3. Noteworthy
 * When an app is relaunched because of a location update, the launch options dictionary passed to your application:willFinishLaunchingWithOptions: or application:didFinishLaunchingWithOptions: method contains the UIApplicationLaunchOptionsLocationKey key. The presence of that key signals that new location data is waiting to be delivered to your app. To obtain that data, you must create a new CLLocationManager object and restart the location services that you had running prior to your app’s termination. When you restart those services, the location manager delivers all pending location updates to its delegate.
 * &hellip; specifying a value of kCLLocationAccuracyThreeKilometers doesn’t prevent the location service from returning better data.
 
-h2. Properties
+h3. Properties
 
 * desiredAccuracy:
 * distanceThreshold:
 
-h2. Questions
+h3. Questions
 
-h3. Can we query the location manager directly or do we need to save reported locations?
+h4. Can we query the location manager directly or do we need to save reported locations?
 
 * No delegate, NO, manager doesn't get updated
 * Yes delegate, No callback, NO, manager doesn't get updated
 * Yes delegate, Yes callback, YES, manager gets updated. ie: get changes directly from manager
 * If a location update has already been delivered, you can also get the most recent location data directly from the CLLocationManager object without waiting for a new event to be delivered.
 
-h3. Does Best Accuracy not bother sending _lower_ readings?
+h4. Does Best Accuracy not bother sending _lower_ readings?
 
 * Test this by changing the accuracy and recording the output for both versions
 * kCLLocationAccuracyKilometer sent 'bad' readings but seemed to stop once it got good enough. Oddly, the first reading thought it was more accurate than the final readings.
@@ -68,7 +68,7 @@ h3. Does Best Accuracy not bother sending _lower_ readings?
     "<+38.70458613,-90.42604957> +/- 1414.00m (speed -1.00 mps / course -1.00) @ 5/8/14, 1:38:56 PM Central Daylight Time"
 )</pre>
 
-h3. Do we continue to get readings after we've reached the 'best'
+h4. Do we continue to get readings after we've reached the 'best'
 
 * kCLLocationAccuracyBestForNavigation appears to send readings every 30 seconds, even after leveling off from initial startup.
 

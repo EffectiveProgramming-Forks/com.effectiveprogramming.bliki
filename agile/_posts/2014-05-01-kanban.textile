@@ -1,0 +1,6 @@
+---
+layout: post
+title: Kanban
+---
+
+* "Kanban Game":http://www.ddegrandis.com/kanban-game/

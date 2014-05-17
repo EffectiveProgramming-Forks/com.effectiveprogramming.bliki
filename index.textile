@@ -13,6 +13,22 @@ title: Home
 
 <div class="post">
 
+h3. Agile
+
+<ul class="posts">
+    {% for post in site.categories.agile %}
+      <li><a href="{{ post.url }}">{{ post.title }}</a></li>
+    {% endfor %}
+</ul>
+
+h3. Education
+
+<ul class="posts">
+    {% for post in site.categories.education %}
+      <li><a href="{{ post.url }}">{{ post.title }}</a></li>
+    {% endfor %}
+</ul>
+
 h3. iOS
 
 <ul class="posts">
@@ -25,6 +41,22 @@ h3. Languages
 
 <ul class="posts">
     {% for post in site.categories.languages %}
+      <li><a href="{{ post.url }}">{{ post.title }}</a></li>
+    {% endfor %}
+</ul>
+
+h3. Music
+
+<ul class="posts">
+    {% for post in site.categories.musi %}
+      <li><a href="{{ post.url }}">{{ post.title }}</a></li>
+    {% endfor %}
+</ul>
+
+h3. Podcasting
+
+<ul class="posts">
+    {% for post in site.categories.podcasting %}
       <li><a href="{{ post.url }}">{{ post.title }}</a></li>
     {% endfor %}
 </ul>

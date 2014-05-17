@@ -1,0 +1,66 @@
+---
+layout: post
+title: Podcasting Basics
+---
+
+h3. podcast.xml specs
+
+* "iTunes Specs":http://www.apple.com/itunes/podcasts/specs.html
+
+h3. RSS Aggregators
+
+* iTunes
+* Stitcher
+* Swell
+* Instacast
+
+h3. Syndicated Feeds
+
+* "Why Every Blogger Should Use Feedburner (or Feedblitz)":http://www.danoah.com/why-every-blogger-should-use-feedburner-or-feedblitz
+* "Feedblitz":http://feedblitz.com/
+
+h3. Hosting Services
+
+* "PodBean":http://www.podbean.com/
+* "LibSyn":http://www.libsyn.com/
+* "BuzzSprout":http://www.buzzsprout.com/
+* "HipCast":https://www.hipcast.com/
+* "Talkshoe":http://www.talkshoe.com/
+* "Blubrry":http://www.blubrry.com/
+
+h3. Stats
+
+* "Podtrac":http://podtrac.com/
+
+h3. Personal Hosting
+
+* "Dropbox & Jekyll":http://bosslee.co/2013/07/28/podcasting-with-dropbox-and-jekyll/
+
+h3. ID3
+
+* "Tagging your MP3 Files":http://podcastanswerman.com/tagging/
+* "KID3":http://kid3.sourceforge.net/
+* "ID3":http://www.pa-software.com/index.php
+* "Embedding Album Art in MP3 Files":http://www.richardfarrar.com/embedding-album-art-in-mp3-files/
+
+h3. Equipment
+
+* "Zoom H1":http://www.amazon.com/dp/B003QKBVYK/	
+* "Zoom H4n":http://www.amazon.com/dp/B001QWBM62/
+* "Ultimate Support JSMCTB50 Microphone Stand":http://www.amazon.com/exec/obidos/ASIN/B001KJHN6E/thepodhos-20
+* "R44":http://www.sweetwater.com/store/detail/R44Edirol/
+* "DR-680":http://www.bhphotovideo.com/c/product/673541-REG/Tascam_DR_680_DR_680_8_Track_Portable_Field.html $439
+* "R88":http://www.sweetwater.com/store/detail/R88Rec/ $2495
+* "788t":http://www.sounddevices.com/products/788t/
+* "R44 vs DR-680":http://www.gearslutz.com/board/remote-possibilities-acoustic-music-location-recording/580734-edirol-r-44-tascam-dr-680-film-work.html
+
+
+h3. General Help
+
+* "Kevin Muldoon":http://www.kevinmuldoon.com/podcast-hosting/
+* "School of Podcasting":http://schoolofpodcasting.com/the-correct-way-to-launch-your-podcast/
+* "The Podcast Host":http://www.thepodcasthost.com/
+
+h3. Hipcast
+
+* "How to setup your podcast":http://blog.hipcast.com/category/uncategorized/

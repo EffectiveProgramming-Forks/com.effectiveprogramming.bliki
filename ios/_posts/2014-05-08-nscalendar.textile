@@ -1,0 +1,8 @@
+---
+layout: post
+title: NSLayout
+---
+
+* "sqlite lang datefunc":http://www.sqlite.org/lang_datefunc.html
+* "NSDateComponents":http://nshipster.com/nsdatecomponents/
+* "NSDateClass":https://developer.apple.com/library/mac/documentation/Cocoa/Reference/Foundation/Classes/NSCalendar_Class/Reference/NSCalendar.html#//apple_ref/occ/instm/NSCalendar/dateByAddingComponents:toDate:options:
