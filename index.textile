@@ -21,6 +21,14 @@ h3. Agile
     {% endfor %}
 </ul>
 
+h3. Cocoa
+
+<ul class="posts">
+    {% for post in site.categories.cocoa %}
+      <li><a href="{{ post.url }}">{{ post.title }}</a></li>
+    {% endfor %}
+</ul>
+
 h3. Education
 
 <ul class="posts">
