@@ -1,0 +1,14 @@
+---
+layout: post
+title: Cocoa
+---
+
+* "Core Competencies":https://developer.apple.com/library/ios/documentation/general/conceptual/DevPedia-CocoaCore/Delegation.html#//apple_ref/doc/uid/TP40008195-CH14-SW1
+
+h3. SplitViews
+
+* "An NSSplitView delegate for priority based resizing":http://www.cocoawithlove.com/2009/09/nssplitview-delegate-for-priority-based.html
+
+h3. Toolbars
+
+* "How toolbars work":https://developer.apple.com/library/mac/documentation/Cocoa/Conceptual/Toolbars/Concepts/HowToolbarsWork.html
