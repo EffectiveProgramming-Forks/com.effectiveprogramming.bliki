@@ -1,0 +1,14 @@
+---
+layout: post
+title: NSArray
+---
+
+h3. Stack Overflow
+
+* "Differences between [NSArray arrayWithArray:] and [NSArray copy]":http://stackoverflow.com/questions/14849570/differences-between-nsarray-arraywitharray-and-nsarray-copy
+
+<blockquote>The main difference is that -copy knows better how to copy itself (can do it more efficiently and maybe use a more adapted subclass of NSArray) while +arrayWithArray: will create a new instance of NSArray (well, in fact the concrete class used by Foundation for arrays) and feed it with the same list of objects from the initial object. Also it will add an extra autorelease.
+
+So -copy is (very very) likely more efficient.
+
+In fact for immutable NSArrays, -copy is just doing -retain, so it does not even bother creating a new instance.</blockquote>

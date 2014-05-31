@@ -1,0 +1,17 @@
+---
+layout: post
+title: NSString
+---
+
+h3. Format Specifiers
+
+* "Format Specifiers":https://developer.apple.com/library/ios/documentation/cocoa/conceptual/Strings/Articles/formatSpecifiers.html
+* "Dynamically format a float in a NSString":http://stackoverflow.com/questions/13122210/dynamically-format-a-float-in-a-nsstring
+
+<blockquote>A field width, or precision, or both, may be indicated by an asterisk ( '*' ). In this case an argument of type int supplies the field width or precision.</blockquote>
+
+Example:
+
+<div class="gist">
+<script src="https://gist.github.com/0b144738b99dac41fa43.js"> </script>
+</div>

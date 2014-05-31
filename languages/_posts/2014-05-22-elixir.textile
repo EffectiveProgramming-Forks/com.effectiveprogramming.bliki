@@ -1,0 +1,9 @@
+---
+layout: post
+title: Elixir
+---
+
+* "elixir":http://elixir-lang.org/
+* "Why Elixir":http://www.theerlangelist.com/2014/01/why-elixir.html
+* "The Excitement of Elixir":http://devintorr.es/blog/2013/01/22/the-excitement-of-elixir/
+* "Elixir: It's Not About Syntax":http://devintorr.es/blog/2013/06/11/elixir-its-not-about-syntax/
