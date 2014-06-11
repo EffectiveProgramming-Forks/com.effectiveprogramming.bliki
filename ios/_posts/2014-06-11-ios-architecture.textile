@@ -1,0 +1,46 @@
+---
+layout: post
+title: iOS Architecture
+---
+
+h3. Clean Architecture
+
+* "The Clean Architecture":http://blog.8thlight.com/uncle-bob/2012/08/13/the-clean-architecture.html
+* "Clean Architecture, SOOG":http://blog.8thlight.com/uncle-bob/2011/11/22/Clean-Architecture.html
+* "Lighter View Controllers":http://www.objc.io/issue-1/lighter-view-controllers.html
+
+h3. Apple Docs
+
+Core Cocoa
+
+* "Model View Controller":https://developer.apple.com/library/mac/documentation/general/conceptual/devpedia-cocoacore/MVC.html
+* "Controller Object":https://developer.apple.com/library/mac/documentation/general/conceptual/devpedia-cocoacore/ControllerObject.html
+
+Objective-C
+
+* "Model View Controller":https://developer.apple.com/library/ios/documentation/general/conceptual/CocoaEncyclopedia/Model-View-Controller/Model-View-Controller.html
+* "Using Design Patterns":https://developer.apple.com/library/ios/referencelibrary/GettingStarted/RoadMapiOS/DesignPatterns.html
+
+Examples
+
+* "MVCNetworking":https://developer.apple.com/library/ios/samplecode/MVCNetworking/Introduction/Intro.html
+
+h3. Humble Dialog
+
+* "The Humble Dialog":http://www.objectmentor.com/resources/articles/TheHumbleDialogBox.pdf
+
+h3. Presenter First
+
+* "Presenter First":http://atomicobject.com/files/PresenterFirstAgile2006.pdf
+* "Presenter First Deck":http://user.it.uu.se/~carle/softcraft/notes/PresenterFirst.pdf
+* "Presenter First TOC":https://codefornothing.wordpress.com/tag/presenter-first/
+* "Presenter First You Tube":http://www.youtube.com/watch?v=pXrTZ709Xco
+
+h3. objc.io
+
+* "VIPER":http://www.objc.io/issue-13/viper.html
+* "MVVM":http://www.objc.io/issue-13/mvvm.html
+
+h3. Podcasts
+
+* "Carpe Aqua":http://carpeaqua.com/cocoaradio/
